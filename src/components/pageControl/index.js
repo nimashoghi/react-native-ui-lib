@@ -26,6 +26,7 @@ function getSizeStyle(size, enlargeActive, index, currentPage) {
  */
 export default class PageControl extends BaseComponent {
   static displayName = 'PageControl';
+  
   static propTypes = {
     /**
      * Additional styles for the top container
@@ -62,35 +63,39 @@ export default class PageControl extends BaseComponent {
     /**
      * The space between the siblings page indicators
      */
-    spacing: PropTypes.number,
+    spacing: PropTypes.number
   };
 
   static defaultProps = {
     size: 10,
     spacing: 4,
-    enlargeActive: false,
+    enlargeActive: false
   };
 
+  renderItem(item, index) {
+    const {currentPage, color, inactiveColor, onPagePress, size, spacing, enlargeActive} = this.props;
+
+    return (
+      <TouchableOpacity
+        disabled={_.isUndefined(onPagePress)}
+        onPress={() => onPagePress && onPagePress(index)}
+        key={index}
+        style={[
+          styles.pageIndicator,
+          {marginRight: spacing / 2, marginLeft: spacing / 2},
+          getColorStyle(color, inactiveColor, index, currentPage),
+          getSizeStyle(size, enlargeActive, index, currentPage)
+        ]}
+      />
+    );
+  }
+
   render() {
-    const {numOfPages, currentPage, color, inactiveColor, containerStyle, onPagePress, size, spacing, enlargeActive}
-      = this.props;
+    const {numOfPages, containerStyle} = this.props;
 
     return (
       <View style={[styles.container, containerStyle]}>
-        {
-          _.map([...new Array(numOfPages)], (item, index) =>
-            <TouchableOpacity
-              disabled={_.isUndefined(onPagePress)}
-              onPress={() => onPagePress && onPagePress(index)}
-              key={index}
-              style={[
-                styles.pageIndicator,
-                {marginRight: spacing / 2, marginLeft: spacing / 2},
-                getColorStyle(color, inactiveColor, index, currentPage),
-                getSizeStyle(size, enlargeActive, index, currentPage),
-              ]}
-            />)
-        }
+        {_.map([...new Array(numOfPages)], (item, index) => this.renderItem(item, index))}
       </View>
     );
   }
@@ -100,10 +105,10 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   pageIndicator: {
     backgroundColor: 'transparent',
-    borderWidth: 1,
-  },
+    borderWidth: 1
+  }
 });
