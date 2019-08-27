@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
-import {Colors, View, Text, Carousel, PageControl} from 'react-native-ui-lib'; // eslint-disable-line
+import {View, Text, Carousel} from 'react-native-ui-lib'; // eslint-disable-line
 
 
 const INITIAL_PAGE = 0;
@@ -43,13 +43,6 @@ class CarouselScreen extends Component {
         <View center style={{...StyleSheet.absoluteFillObject}} pointerEvents="none">
           <Text text10>{this.state.currentPage}</Text>
         </View>
-        <PageControl 
-          containerStyle={{...StyleSheet.absoluteFillObject, height: 10}} 
-          color={Colors.dark10} 
-          inactiveColor={Colors.dark50} 
-          numOfPages={6} 
-          currentPage={this.state.currentPage}
-        />
       </View>
     );
   }
