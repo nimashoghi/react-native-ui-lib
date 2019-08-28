@@ -8,17 +8,6 @@ import TouchableOpacity from '../touchableOpacity';
 import View from '../view';
 
 
-function getColorStyle(color, inactiveColor, index, currentPage) {
-  const compColor = color || ThemeManager.primaryColor;
-  return {borderColor: (index === currentPage) ? compColor : inactiveColor || compColor,
-    backgroundColor: (index === currentPage) ? compColor : inactiveColor || 'transparent'};
-}
-
-function getSizeStyle(size, enlargeActive, index, currentPage) {
-  const temp = enlargeActive ? ((index === currentPage) ? size + 2 : size) : size;
-  return {width: temp, height: temp, borderRadius: temp / 2};
-}
-
 /**
  * @description: Page indicator, typically used in paged scroll-views
  * @image: https://user-images.githubusercontent.com/33805983/34663655-76698110-f460-11e7-854b-243d27f66fec.png
@@ -72,19 +61,44 @@ export default class PageControl extends BaseComponent {
     enlargeActive: false
   };
 
+  getColorStyle(index) {
+    const {color, inactiveColor, currentPage} = this.props;
+    const compColor = color || ThemeManager.primaryColor;
+
+    return {
+      borderColor: index === currentPage ? compColor : inactiveColor || compColor,
+      backgroundColor: index === currentPage ? compColor : inactiveColor || 'transparent'
+    };
+  }
+  
+  getSizeStyle(index) {
+    const {size, enlargeActive, currentPage} = this.props;
+    const temp = enlargeActive ? (index === currentPage ? size + 2 : size) : size;
+
+    return {
+      width: temp, 
+      height: temp, 
+      borderRadius: temp / 2
+    };
+  }
+
+  onPagePress = (index) => {
+    _.invoke(this.props, 'onPagePress', index);
+  }
+
   renderItem(item, index) {
-    const {currentPage, color, inactiveColor, onPagePress, size, spacing, enlargeActive} = this.props;
+    const {onPagePress, spacing} = this.props;
 
     return (
       <TouchableOpacity
         disabled={_.isUndefined(onPagePress)}
-        onPress={() => onPagePress && onPagePress(index)}
+        onPress={() => this.onPagePress(index)}
         key={index}
         style={[
           styles.pageIndicator,
           {marginRight: spacing / 2, marginLeft: spacing / 2},
-          getColorStyle(color, inactiveColor, index, currentPage),
-          getSizeStyle(size, enlargeActive, index, currentPage)
+          this.getColorStyle(index),
+          this.getSizeStyle(index)
         ]}
       />
     );
