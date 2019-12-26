@@ -17,6 +17,9 @@ module.exports = {
   get Badge() {
     return require('./badge').default;
   },
+  get BlurView() {
+    return require('./blurView').default;
+  },
   get Button() {
     return require('./button').default;
   },
@@ -44,9 +47,6 @@ module.exports = {
   get Dialog() {
     return require('./dialog').default;
   },
-  get FeatureHighlight() {
-    return require('./featureHighlight').default;
-  },
   get FloatingButton() {
     return require('./floatingButton').default;
   },
@@ -56,7 +56,7 @@ module.exports = {
   get Image() {
     return require('./image').default;
   },
-  
+
   get BaseInput() {
     return require('./inputs').BaseInput;
   },

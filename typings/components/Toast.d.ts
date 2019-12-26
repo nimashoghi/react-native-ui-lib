@@ -1,17 +1,11 @@
-
 import {ReactElement} from 'react';
-import {
-  GestureResponderEvent,
-  ImageRequireSource,
-  StyleProp,
-  TextStyle
-} from 'react-native';
+import {GestureResponderEvent, ImageRequireSource, StyleProp, TextStyle} from 'react-native';
 import {BaseComponent} from '../commons';
 import {ColorValue} from '../style/colors';
+import {BlurViewProperties} from './BlurView';
 import {ButtonProps} from './Button';
-import {BlurViewProperties} from '@react-native-community/blur';
 
-export type ToastPosition = "relative" | "top" | "bottom";
+export type ToastPosition = 'relative' | 'top' | 'bottom';
 
 export interface ToastProps {
   visible?: boolean;

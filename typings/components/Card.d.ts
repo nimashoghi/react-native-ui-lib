@@ -1,13 +1,6 @@
-
-import {
-  GestureResponderEvent,
-  ImageRequireSource,
-  ImageSourcePropType,
-  StyleProp,
-  ViewStyle
-} from 'react-native';
-import {BlurViewProperties} from '@react-native-community/blur';
+import {GestureResponderEvent, ImageRequireSource, ImageSourcePropType, StyleProp, ViewStyle} from 'react-native';
 import {BaseComponent, PureBaseComponent} from '../commons';
+import {BlurViewProperties} from '../components/BlurView';
 import {ColorValue} from '../style/colors';
 
 type CardImagePositionOption = 'top' | 'bottom' | 'left' | 'right';

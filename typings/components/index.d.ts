@@ -1,15 +1,14 @@
-
 export * from './ActionBar';
 export * from './ActionSheet';
 export * from './Avatar';
 export * from './Badge';
+export * from './BlurView';
 export * from './Button';
 export * from './Card';
 export * from './Carousel';
 export * from './ColorPicker';
 export * from './ConnectionStatusBar';
 export * from './Dialog';
-export * from './FeatureHighlight';
 export * from './FloatingButton';
 export * from './Hint';
 export * from './Image';

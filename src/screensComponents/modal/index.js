@@ -1,12 +1,12 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {StyleSheet, Modal as RNModal, TouchableWithoutFeedback} from 'react-native';
-import {BlurView} from '@react-native-community/blur';
-import {Constants} from '../../helpers';
+import {Modal as RNModal, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import {BaseComponent} from '../../commons';
-import TopBar from './TopBar';
+import {BlurView} from '../../components/blurView';
 import View from '../../components/view';
+import {Constants} from '../../helpers';
+import TopBar from './TopBar';
 
 /**
  * @description: Component that present content on top of the invoking screen

@@ -63,3 +63,5 @@ package-lock.json
 
 # CocoaPods
 /ios/Pods/
+
+.env

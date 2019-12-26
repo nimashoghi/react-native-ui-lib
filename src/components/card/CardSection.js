@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import {StyleSheet} from 'react-native';
-import {BlurView} from '@react-native-community/blur';
 import {BaseComponent} from '../../commons';
 import {Constants} from '../../helpers';
+import {BlurView} from '../blurView';
 import View from '../view';
 
 /**

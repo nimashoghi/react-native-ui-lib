@@ -1,19 +1,18 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {StyleSheet, ViewPropTypes, Animated} from 'react-native';
-import {BlurView} from '@react-native-community/blur';
-import {Constants} from '../../helpers';
-import {Colors, BorderRadiuses} from '../../style';
-import {PureBaseComponent} from '../../commons';
-import View from '../view';
-import TouchableOpacity from '../touchableOpacity';
-import Image from '../image';
-import CardSection from './CardSection';
-import CardItem from './CardItem';
-import CardImage from './CardImage';
+import {Animated, StyleSheet, ViewPropTypes} from 'react-native';
 import Assets from '../../assets';
-
+import {PureBaseComponent} from '../../commons';
+import {Constants} from '../../helpers';
+import {BorderRadiuses, Colors} from '../../style';
+import {BlurView} from '../blurView';
+import Image from '../image';
+import TouchableOpacity from '../touchableOpacity';
+import View from '../view';
+import CardImage from './CardImage';
+import CardItem from './CardItem';
+import CardSection from './CardSection';
 
 const DEFAULT_BORDER_RADIUS = BorderRadiuses.br40;
 const DEFAULT_SELECTION_PROPS = {
@@ -147,7 +146,7 @@ class Card extends PureBaseComponent {
 
   get elevationStyle() {
     const {elevation, enableShadow} = this.getThemeProps();
-    
+
     if (enableShadow) {
       return {elevation: elevation || 2};
     }
@@ -155,7 +154,7 @@ class Card extends PureBaseComponent {
 
   get shadowStyle() {
     const {enableShadow} = this.getThemeProps();
-    
+
     if (enableShadow) {
       return this.styles.containerShadow;
     }
@@ -163,7 +162,7 @@ class Card extends PureBaseComponent {
 
   get blurBgStyle() {
     const {enableBlur} = this.getThemeProps();
-    
+
     if (Constants.isIOS && enableBlur) {
       return {backgroundColor: Colors.rgba(Colors.white, 0.85)};
     } else {
@@ -173,7 +172,7 @@ class Card extends PureBaseComponent {
 
   get borderRadius() {
     const {borderRadius} = this.getThemeProps();
-    
+
     return borderRadius === undefined ? DEFAULT_BORDER_RADIUS : borderRadius;
   }
 
