@@ -6,16 +6,16 @@ export const navigationData = {
       {title: 'Colors', tags: 'palette rgb hex', screen: 'unicorn.style.ColorsScreen'},
       {title: 'Shadows (iOS)', tags: 'shadow', screen: 'unicorn.style.ShadowsScreen'},
       {title: 'Spacings', tags: 'space margins paddings gutter', screen: 'unicorn.style.SpacingsScreen'},
-      {title: 'Typography', tags: 'fonts text', screen: 'unicorn.style.TypographyScreen'},
-    ],
+      {title: 'Typography', tags: 'fonts text', screen: 'unicorn.style.TypographyScreen'}
+    ]
   },
   Wrappers: {
     title: 'Wrappers',
     screens: [
       // {title: 'View', tags: 'view wrapper', screen: 'unicorn.wrappers.ViewScreen'},
       // {title: 'Text', tags: 'text wrapper', screen: 'unicorn.wrappers.TextScreen'},
-      {title: 'TouchableOpacity', tags: 'touchableOpacity wrapper', screen: 'unicorn.wrappers.TouchableOpacityScreen'},
-    ],
+      {title: 'TouchableOpacity', tags: 'touchableOpacity wrapper', screen: 'unicorn.wrappers.TouchableOpacityScreen'}
+    ]
   },
   Components: {
     title: 'Components',
@@ -30,19 +30,21 @@ export const navigationData = {
       {title: 'Connection Status Bar', tags: 'connection status bar', screen: 'unicorn.components.ConnectionStatusBar'},
       {title: 'Dialog', tags: 'dialog modal popup alert', screen: 'unicorn.components.DialogScreen'},
       {title: 'Floating Button', tags: 'floating button', screen: 'unicorn.components.FloatingButtonScreen'},
-      {title: 'Feature Highlight', tags: 'feature overlay', screen: 'unicorn.components.FeatureHighlightScreen'},
       {title: 'Hint', tags: 'hints tooltip', screen: 'unicorn.components.HintsScreen'},
       {title: 'Overlays', tags: 'overlay image', screen: 'unicorn.components.OverlaysScreen'},
       {title: 'Page Control', tags: 'page', screen: 'unicorn.components.PageControlScreen'},
       {title: 'Pan Listener', tags: 'pan swipe drag listener', screen: 'unicorn.components.PanListenerScreen'},
       {title: 'Pan Responder', tags: 'pan swipe drag responder', screen: 'unicorn.components.PanResponderScreen'},
-      {title: 'Shared Transition', tags: 'shared transition element', screen: 'unicorn.components.SharedTransitionScreen'},
+      {
+        title: 'Shared Transition',
+        tags: 'shared transition element',
+        screen: 'unicorn.components.SharedTransitionScreen'
+      },
       {title: 'Stack Aggregator', tags: 'stack aggregator', screen: 'unicorn.components.StackAggregatorScreen'},
       {title: 'TabBar', tags: 'tab bar', screen: 'unicorn.components.TabBarScreen'},
       {title: 'Toast', tags: 'toast top bottom snackbar', screen: 'unicorn.components.ToastsScreen'},
-      {title: 'Wheel Picker Dialog', tags: 'wheel picker dialog', screen: 'unicorn.components.WheelPickerDialogScreen'},
-      {title: 'Wizard', tags: 'wizard', screen: 'unicorn.components.WizardScreen'},
-    ],
+      {title: 'Wizard', tags: 'wizard', screen: 'unicorn.components.WizardScreen'}
+    ]
   },
   Form: {
     title: 'Form',
@@ -58,36 +60,24 @@ export const navigationData = {
       {title: 'Slider', tags: 'slider', screen: 'unicorn.components.SliderScreen'},
       {title: 'Switch', tags: 'switch toggle', screen: 'unicorn.components.SwitchScreen'},
       {title: 'TagsInput', tags: 'tags input form', screen: 'unicorn.components.TagsInputScreen'},
-      {title: 'Masked Inputs', tags: 'text input form mask', screen: 'unicorn.components.MaskedInputScreen'},
-    ],
-  },
-  Native: {
-    title: 'Native',
-    screens: [
-      {title: 'Highlight Overlay', tags: 'native overlay', screen: 'unicorn.nativeComponents.HighlightOverlayViewScreen'},
-      {title: 'Wheel Picker', tags: 'wheel picker', screen: 'unicorn.nativeComponents.WheelPickerViewScreen'},
-      {title: 'SafeArea Sapcer', tags: 'native safe area', screen: 'unicorn.nativeComponents.SafeAreaSpacerViewScreen'},
-    ],
-  },
-  Interactable: {
-    title: 'Interactable',
-    screens: [{title: 'Drawer', tags: 'interactable drawer', screen: 'unicorn.interactableComponents.DrawerScreen'}],
+      {title: 'Masked Inputs', tags: 'text input form mask', screen: 'unicorn.components.MaskedInputScreen'}
+    ]
   },
   Screens: {
     title: 'Screens',
     screens: [
       {title: 'Loading Screen', tags: 'loading screen', screen: 'unicorn.screens.LoadingScreen'},
       {title: 'Modal Screen', tags: 'modal topbar screen', screen: 'unicorn.screens.ModalScreen'},
-      {title: 'State Screen', tags: 'empty state screen', screen: 'unicorn.screens.EmptyStateScreen'},
-    ],
+      {title: 'State Screen', tags: 'empty state screen', screen: 'unicorn.screens.EmptyStateScreen'}
+    ]
   },
   Lists: {
     title: 'Lists',
     screens: [
       {title: 'Basic List', tags: 'basic list', screen: 'unicorn.lists.BasicListScreen'},
       {title: 'Contacts List', tags: 'list contacts', screen: 'unicorn.lists.ContactsListScreen'},
-      {title: 'Conversation List', tags: 'list conversation', screen: 'unicorn.lists.ConversationListScreen'},
-    ],
+      {title: 'Conversation List', tags: 'list conversation', screen: 'unicorn.lists.ConversationListScreen'}
+    ]
   },
   Animations: {
     title: 'Animations',
@@ -96,8 +86,8 @@ export const navigationData = {
       {title: 'List Animations', tags: 'animated card', screen: 'unicorn.animations.ListAnimationsScreen'},
       {title: 'Card Animations', tags: 'animated card', screen: 'unicorn.animations.CardAnimationsScreen'},
       {title: 'Card Scanner', tags: 'card scanner process', screen: 'unicorn.animations.CardScannerScreen'},
-      {title: 'ProgressBar', tags: 'progress bar animated', screen: 'unicorn.animations.ProgressBarScreen'},
-    ],
+      {title: 'ProgressBar', tags: 'progress bar animated', screen: 'unicorn.animations.ProgressBarScreen'}
+    ]
   },
   Incubator: {
     title: 'Incubator',
@@ -111,6 +101,6 @@ export const navigationData = {
     screens: [
       {title: 'Apple Music', tags: 'apple music demo screen', screen: 'unicorn.examples.AppleMusic'},
       {title: 'List Actions', tags: 'list actions demo screen', screen: 'unicorn.examples.ListActionsScreen'}
-    ],
-  },
+    ]
+  }
 };

@@ -33,4 +33,3 @@ export * from './Toast';
 export * from './TouchableOpacity';
 export * from './Tour';
 export * from './View';
-export * from './WheelPickerDialog';
