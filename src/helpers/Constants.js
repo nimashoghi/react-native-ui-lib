@@ -1,4 +1,12 @@
-import {Platform, Dimensions, NativeModules, I18nManager} from 'react-native';
+import {Platform, Dimensions, I18nManager} from 'react-native';
+
+let expoConstants;
+let NativeModules;
+try {
+  expoConstants = require('expo-constants');
+} catch (e) {
+  NativeModules = require('react-native').NativeModules;
+}
 
 const dimensionsScope = {
   WINDOW: 'window',
@@ -22,6 +30,11 @@ constants.getAndroidVersion = () => {
 
 /* Navigation */
 function setStatusBarHeight() {
+  if (expoConstants) {
+    constants.statusBarHeight = expoConstants.statusBarHeight;
+    return;
+  }
+
   const {StatusBarManager} = NativeModules;
   constants.statusBarHeight = 0; // so there will be a value for any case
   constants.statusBarHeight = constants.isIOS ? 20 : StatusBarManager.HEIGHT;
@@ -92,11 +105,11 @@ function updateConstants(dimensions) {
 
 Dimensions.addEventListener('change', updateConstants);
 
-constants.addDimensionsEventListener = (callback) => {
+constants.addDimensionsEventListener = callback => {
   Dimensions.addEventListener('change', callback);
 };
 
-constants.removeDimensionsEventListener = (callback) => {
+constants.removeDimensionsEventListener = callback => {
   Dimensions.removeEventListener('change', callback);
 };
 

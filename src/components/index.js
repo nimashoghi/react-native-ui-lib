@@ -112,9 +112,6 @@ module.exports = {
   get TabBar() {
     return require('./tabBar').default;
   },
-  get TagsInput() {
-    return require('./tagsInput').default;
-  },
 
   get RadioButton() {
     return require('./radioButton').RadioButton;

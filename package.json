@@ -1,6 +1,6 @@
 {
   "name": "react-native-ui-lib",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "main": "index.js",
   "typings": "typings/index.d.ts",
   "author": "Ethan Sharabi <ethan.shar@gmail.com>",
@@ -68,6 +68,7 @@
     "eslint-config-wix": "^1.1.28",
     "eslint-plugin-uilib": "file:./eslint-rules",
     "expo-blur": "^8.0.0",
+    "expo-constants": "^8.0.0",
     "gatsby": "^1.9.128",
     "gh-pages": "^1.1.0",
     "jest": "^24.5.0",
