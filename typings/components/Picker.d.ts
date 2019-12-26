@@ -4,13 +4,8 @@ import {BaseComponent} from '../commons';
 import {TextFieldProps} from './Inputs';
 import {TopBarProps} from '../screensComponents/Modal';
 
-export type PickerItemLabeledValue = { value?: any, label?: string };
-export type PickerItemValue =
-  | object
-  | string
-  | number
-  | PickerItemLabeledValue
-  | PickerItemLabeledValue[];
+export type PickerItemLabeledValue = {value?: any; label?: string};
+export type PickerItemValue = object | string | number | PickerItemLabeledValue | PickerItemLabeledValue[];
 
 export type PickerItemRenderItemFunc = (
   value: PickerItemValue | undefined,
@@ -59,8 +54,6 @@ export interface PickerProps extends Omit<TextFieldProps, 'value'> {
   searchPlaceholder?: string;
   onSearchChange?: (searchValue: string) => void;
   renderCustomSearch?: (props: PickerProps) => ReactElement | ReactElement[];
-  useNativePicker?: boolean;
-  renderNativePicker?: (props: PickerProps) => ReactElement | ReactElement[];
   listProps?: PickerListProps;
 }
 

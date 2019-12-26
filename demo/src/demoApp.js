@@ -4,7 +4,6 @@ import * as Animatable from 'react-native-animatable';
 import {AnimatableManager, ThemeManager, Constants, Assets, Colors, Typography} from 'react-native-ui-lib'; //eslint-disable-line
 import {registerScreens} from './screens';
 
-
 /** Examples - uncomment when needed */
 // Typography.loadTypographies({
 //   h1: {fontSize: 58, fontWeight: '300', lineHeight: 80},
@@ -24,17 +23,6 @@ import {registerScreens} from './screens';
 //   },
 //   titleColor: Colors.blue10,
 //   subtitleColor: Colors.blue40,
-// });
-
-// ThemeManager.setComponentTheme('Picker', (props) => {
-//   if (props.useNativePicker) {
-//     return {
-//       topBarProps: {
-//         doneLabel: Constants.isIOS ? 'Done2' : 'OK2',
-//         cancelLabel: Constants.isIOS ? 'Cancel2' : 'CANCEL2',
-//       },
-//     };
-//   }
 // });
 
 // Assets.loadAssetsGroup('icons.general', {
@@ -60,22 +48,21 @@ import {registerScreens} from './screens';
 //   customAnimation1: {
 //     from: {opacity: 0, translateY: 20},
 //     to: {opacity: 1, translateY: 0},
-//   }, 
+//   },
 //   customAnimation2: {
 //     from: {opacity: 0, translateY: 40},
 //     to: {opacity: 1, translateY: 0},
 //   },
 // };
 // IMPORTANT! Make uilib's animations available globally for the app's use (option to pass adittional animation definitions)
-Animatable.initializeRegistryWithDefinitions(AnimatableManager.loadAnimationDefinitions(/** customAnimationsDefinitions */)); 
-
+Animatable.initializeRegistryWithDefinitions(AnimatableManager.loadAnimationDefinitions(/** customAnimationsDefinitions */));
 
 function getDefaultNavigationStyle() {
   return {
     statusBar: {
       visible: true,
       style: 'light',
-      backgroundColor: ThemeManager.primaryColor, // for Android
+      backgroundColor: ThemeManager.primaryColor // for Android
     },
     layout: {
       backgroundColor: Colors.white,
@@ -86,30 +73,30 @@ function getDefaultNavigationStyle() {
       noBorder: true, // for iOS
       elevation: 0, // for Android
       background: {
-        color: ThemeManager.primaryColor,
+        color: ThemeManager.primaryColor
       },
       title: {
         color: Colors.white,
         fontSize: Typography.text70.fontSize,
         fontFamily: Constants.isAndroid ? 'sans-serif-bold' : '.SFUIText-Heavy',
-        alignment: 'center',
+        alignment: 'center'
       },
       subtitle: {
         color: Colors.white,
         fontSize: Typography.text80.fontSize,
-        fontFamily: Constants.isAndroid ? Typography.text80.fontFamily : '.SFUIText-Medium',
+        fontFamily: Constants.isAndroid ? Typography.text80.fontFamily : '.SFUIText-Medium'
       },
       backButton: {
         // visible: true,
         color: Colors.white,
         showTitle: Constants.isIOS ? false : undefined,
-        testID: 'pop',
+        testID: 'pop'
       },
-      leftButtonColor: Colors.white, 
+      leftButtonColor: Colors.white,
       leftButtonDisabledColor: Colors.rgba(Colors.white, 0.6),
-      rightButtonColor: Colors.white, 
-      rightButtonDisabledColor: Colors.rgba(Colors.white, 0.6),
-    },
+      rightButtonColor: Colors.white,
+      rightButtonDisabledColor: Colors.rgba(Colors.white, 0.6)
+    }
   };
 }
 
@@ -126,22 +113,22 @@ function startApp(defaultScreen) {
               options: {
                 topBar: {
                   title: {
-                    text: 'UILIB',
-                  },
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
+                    text: 'UILIB'
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
   };
 
   if (defaultScreen) {
     rootObject.root.stack.children.push({
       component: {
-        name: defaultScreen,
-      },
+        name: defaultScreen
+      }
     });
   }
 

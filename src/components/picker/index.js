@@ -10,7 +10,6 @@ import Modal from '../../screensComponents/modal';
 import Button from '../../components/button';
 import {TextField} from '../inputs';
 import * as PickerPresenter from './PickerPresenter';
-import NativePicker from './NativePicker';
 import PickerModal from './PickerModal';
 import PickerItem from './PickerItem';
 import {Colors} from '../../style';
@@ -25,7 +24,7 @@ const ItemType = PropTypes.shape({
 });
 
 /**
- * @description: Picker Component, support single or multiple selection, blurModel and nativePicker
+ * @description: Picker Component, support single or multiple selection and blurModel
  * @gif: https://media.giphy.com/media/3o751SiuZZiByET2lq/giphy.gif, https://media.giphy.com/media/TgMQnyw5grJIDohzvx/giphy.gif, https://media.giphy.com/media/5hsdmVptBRskZKn787/giphy.gif
  * @example: https://github.com/wix/react-native-ui-lib/blob/master/demo/src/screens/componentScreens/FormScreen.js
  */
@@ -114,14 +113,6 @@ class Picker extends BaseComponent {
      */
     renderCustomSearch: PropTypes.func,
     /**
-     * Allow to use the native picker solution (different style for iOS and Android)
-     */
-    useNativePicker: PropTypes.bool,
-    /**
-     * Callback for rendering a custom native picker inside the dialog (relevant to native picker only)
-     */
-    renderNativePicker: PropTypes.func,
-    /**
      * Pass props to the list component that wraps the picker options (allows to control FlatList behavior)
      */
     listProps: PropTypes.object
@@ -149,12 +140,6 @@ class Picker extends BaseComponent {
     if (props.mode === Picker.modes.MULTI && !Array.isArray(props.value)) {
       console.warn('Picker in MULTI mode must accept an array for value');
     }
-
-    // TODO: this warning should be replaced by the opposite
-    // we should warn user NOT to pass an object to the value prop
-    // if (props.useNativePicker && _.isPlainObject(props.value)) {
-    //   console.warn('UILib Picker: don\'t use object as value for native picker, use either string or a number');
-    // }
   }
 
   UNSAFE_componentWillReceiveProps(nexProps) {
@@ -166,7 +151,9 @@ class Picker extends BaseComponent {
   getAccessibilityInfo() {
     const {placeholder} = this.props;
     return {
-      accessibilityLabel: this.getLabel() ? `${placeholder}. selected value = ${this.getLabel()}` : `Select ${placeholder}`,
+      accessibilityLabel: this.getLabel()
+        ? `${placeholder}. selected value = ${this.getLabel()}`
+        : `Select ${placeholder}`,
       accessibilityHint: this.getLabel()
         ? 'Double tap to edit'
         : `Goes to ${placeholder}. Suggestions will be provided`,
@@ -196,7 +183,7 @@ class Picker extends BaseComponent {
     }
 
     if (_.isPlainObject(value)) {
-      return _.get(value, 'label'); 
+      return _.get(value, 'label');
     }
 
     // otherwise, extract from picker items
@@ -324,11 +311,7 @@ class Picker extends BaseComponent {
   };
 
   render() {
-    const {useNativePicker, renderPicker, customPickerProps, testID} = this.props;
-
-    if (useNativePicker) {
-      return <NativePicker {...this.props}/>;
-    }
+    const {renderPicker, customPickerProps, testID} = this.props;
 
     if (_.isFunction(renderPicker)) {
       const {value} = this.state;
