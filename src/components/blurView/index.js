@@ -11,7 +11,7 @@ try {
   isExpo = true;
 }
 
-export default function BlurView({...props}) {
+export function BlurView({...props}) {
   const updatedProps = isExpo
     ? {
       blurAmount: props.intensity,

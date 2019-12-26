@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactNative, {NativeModules, StyleSheet, ViewPropTypes, Image, DeviceEventEmitter} from 'react-native';
+import {findNodeHandle, NativeModules, StyleSheet, ViewPropTypes, Image, DeviceEventEmitter} from 'react-native';
 import {Constants} from '../../helpers';
 import {Colors, BorderRadiuses, ThemeManager, Typography} from '../../style';
 import Assets from '../../assets';
@@ -104,7 +104,7 @@ export default class TagsInput extends BaseComponent {
 
   componentDidMount() {
     if (Constants.isAndroid) {
-      const textInputHandle = ReactNative.findNodeHandle(this.input);
+      const textInputHandle = findNodeHandle(this.input);
       if (textInputHandle && NativeModules.TextInputDelKeyHandler) {
         NativeModules.TextInputDelKeyHandler.register(textInputHandle);
         DeviceEventEmitter.addListener('onBackspacePress', this.onKeyPress);
